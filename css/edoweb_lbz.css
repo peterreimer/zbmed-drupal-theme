@@ -1,5 +1,18 @@
 /* $Id */
 
+
+/* IE 11 Hack.  And  yes indeed we need a f.. hack here */
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast:none) {
+ img[src*=".svg"] {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padinng: 0;
+    padding-bottom: 200px;
+    }
+}
+
+ 
 #header {
   background: url("../images/muehlenfeldtrans3.jpg") no-repeat;
   background-position: 140px -40px;
