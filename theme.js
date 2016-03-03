@@ -29,8 +29,8 @@
   Drupal.behaviors.edoweb_drupal_theme_child = {
     attach: function (context, settings) {
 
-    var fieldLabel = 'Datei';
-    var thumbyUrl = 'https://api.ellinet-dev.hbz-nrw.de/tools/thumby?url=';
+    var fieldLabel = 'Download';
+    var thumbyUrl = settings.edoweb.thumbyServiceUrl + '?url=';
     var thumbSize = '&size=150';
     var serverUrl = 'https://ellinet-dev.hbz-nrw.de'
 
@@ -39,6 +39,7 @@
       if( dataLink.html() ) {
 
         var ref = $(this).attr('href');
+        $(this).find('.field-label').text(fieldLabel);
         $(this).find('.field-label:first').text('Dateiliste:');
         var firstLink = $('.download').attr('href');
         var pictureField = '<div class="field field-name-field-edoweb-preview"><div class="field-label"></div>'
