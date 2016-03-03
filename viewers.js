@@ -2,24 +2,39 @@
 
     Drupal.behaviors.edoweb_drupal_image_viewer = {
     attach: function (context, settings) {
-      // Prepare Service
-      //var viewer = null;
       var serviceUrl = settings.edoweb.deepzoomServiceUrl + '?imageUrl=';
-      if ( serviceUrl ) {
 
-        //alert('deepzoomServiceUrl: ' + settings.edoweb.deepzoomServiceUrl + ', Basepath: ' + settings.basePath);
+      if ( serviceUrl ) {
+        // Prepare Service
         var callbackString = "&callback=?";
         var imageUrl = null;
-        //var viewer=null;
+        var thumdreference = null;
         var tileSourcesFn = null;
-        var imagethumb = $('.field-item[property:dc-format]:contains("image")', context);
-        var thumbreference = imagethumb.parent().parent().parent().find('.thumb a');
-        imageUrl = thumbreference.attr('href');
-        //alert(imagethumb.html() + "\n" + thumbreference.html() + "\n"  + imageUrl);
-        var thumb = imagethumb.parent().parent().parent().find('.thumb a');
-        imagethumb.parent().parent().once('viewerDiv', function(){ 
-          $(this).append('<div class="viewer" id="osd_view" style="width: 800px; height: 600px; background:#ccc;"></div>');
+
+        // find appropriate elements and info and append some stuff 
+        $('.download:first', context).ajaxComplete(function() {
+          var mimetype = $(this).attr('title').replace(/Download /,'').toLowerCase().replace(/-/, '/');;
+          $('.field-name-field-edoweb-preview', context).once().append('<div class="field-item" property="dc:format">' +  mimetype + '</div>');
+
+          $('.field-name-field-edoweb-preview', context).find('.thumb').once().append('<p>Inhalt von Mimetype: ' + $('.field-item[property:dc-format]:contains("image")').html() + '</p>');
+
+          //alert('deepzoomServiceUrl: ' + settings.edoweb.deepzoomServiceUrl + ', Basepath: ' + settings.basePath);
+          var imagethumb = $('.field-item[property:dc-format]:contains("image")', context);
+          thumbreference = imagethumb.parent().parent().parent().find('.thumb a');
+          imageUrl = thumbreference.attr('href');
+          //alert(imagethumb.html() + "\n" + thumbreference.html() + "\n"  + imageUrl);
+          var thumb = imagethumb.parent().parent().parent().find('.thumb a');
+          imagethumb.parent().parent().once('viewerDiv', function(){ 
+            $(this).append('<div class="viewer" id="osd_view" style="width: 800px; height: 600px; background:#ccc;"></div>');
           });
+
+        //$('.field-name-field-edoweb-preview .field-item').attr('property','dc:format').once().append(mimetype);
+        //$(this).parent().parent().parent().addClass('thumb');
+      
+        //Drupal.edoweb_drupal_theme_child.attachBehaviors(context);
+
+      }); 
+
 
         //alert(thumbreference.html());
 

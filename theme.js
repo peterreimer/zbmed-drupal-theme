@@ -65,22 +65,6 @@
 
       });
 
-    $('.download:first', context).ajaxComplete(function() {
-
-      var mimetype = $(this).attr('title').replace(/Download /,'').toLowerCase().replace(/-/, '/');;
-      $('.field-name-field-edoweb-preview', context).once().append('<div class="field-item" property="dc:format">' +  mimetype + '</div>');
-
-      $('.field-name-field-edoweb-preview', context).find('.thumb').once().append('<p>Inhalt von Mimetype: ' + $('.field-item[property:dc-format]:contains("image")').html() + '</p>');
-     
-      //$('.field-name-field-edoweb-preview .field-item').attr('property','dc:format').once().append(mimetype);
-      //$(this).parent().parent().parent().addClass('thumb');
-      
-      //Drupal.edoweb_drupal_theme_child.attachBehaviors(context);
-
-      }); 
-
-
-
 
     } 
   };
