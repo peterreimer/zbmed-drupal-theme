@@ -17,7 +17,6 @@
         imageUrl = thumbreference.attr('href');
         //alert(imagethumb.html() + "\n" + thumbreference.html() + "\n"  + imageUrl);
         var thumb = imagethumb.parent().parent().parent().find('.thumb a');
-        
         imagethumb.parent().parent().once('viewerDiv', function(){ 
           $(this).append('<div class="viewer" id="osd_view" style="width: 800px; height: 600px; background:#ccc;"></div>');
           });

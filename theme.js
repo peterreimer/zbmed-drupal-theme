@@ -34,6 +34,8 @@
     var thumbSize = '&size=150';
     var serverUrl = 'https://ellinet-dev.hbz-nrw.de'
 
+
+
     $('.field-name-field-edoweb-struct-child', context).ajaxComplete(function() {
       var dataLink = $('a[data-target-bundle*="file"]');
       if( dataLink.html() ) {
@@ -45,7 +47,7 @@
         var pictureField = '<div class="field field-name-field-edoweb-preview"><div class="field-label"></div>'
           + '<div class="field-items">'
           // + '<div class="field-item" style="display:none" property="dc:format">image/jpeg</div>' 
-          + '<div class="field-item thumb" property="regal:hasPart">'
+          + '<div class="field-item thumb" >'
           + '<a href="' + serverUrl + firstLink + '" target="_blank">'
           + '<img src="'
           + thumbyUrl
@@ -57,7 +59,27 @@
 
       $('.field-name-field-edoweb-title').once().after($(pictureField));
       $('.field-name-field-edoweb-preview').after($(this));
+
+
+
+
       });
+
+    $('.download:first', context).ajaxComplete(function() {
+
+      var mimetype = $(this).attr('title').replace(/Download /,'').toLowerCase().replace(/-/, '/');;
+      $('.field-name-field-edoweb-preview', context).once().append('<div class="field-item" property="dc:format">' +  mimetype + '</div>');
+
+      $('.field-name-field-edoweb-preview', context).find('.thumb').once().append('<p>Inhalt von Mimetype: ' + $('.field-item[property:dc-format]:contains("image")').html() + '</p>');
+     
+      //$('.field-name-field-edoweb-preview .field-item').attr('property','dc:format').once().append(mimetype);
+      //$(this).parent().parent().parent().addClass('thumb');
+      
+      //Drupal.edoweb_drupal_theme_child.attachBehaviors(context);
+
+      }); 
+
+
 
 
     } 
