@@ -55,7 +55,7 @@
 
       function deepZoomService (){
         var url = serviceUrl + imageUrl + callbackString;
-        
+
         $.getJSON(url, function(json){
         tileSourcesFn = json;
          viewer = OpenSeadragon({
