@@ -2,11 +2,64 @@
 
     Drupal.behaviors.edoweb_drupal_image_viewer = {
     attach: function (context, settings) {
+
       // Prepare Service
-      //var viewer = null;
+      var serviceUrl = settings.edoweb.deepzoomServiceUrl + '?imageUrl=';
       var serviceUrl = "https://api.ellinet-dev.hbz-nrw.de/deepzoom/api/getDzi?imageUrl=";
       var callbackString = "&callback=?";
-      var imageUrl = null;
+
+      $('.content', context).ajaxComplete( function () {
+
+        // get needed dom and variables
+        var imagethumb = $(this).find('.field-name-field-edoweb-filetype .field-items .field-item[property:dc-format]:contains("image")');
+
+        //imagethumb.once().append('<p>HUHU Holla </p>');
+        var thumbreference = imagethumb.parent().parent().parent().find('.thumb a');
+        var imageUrl = thumbreference.attr('href');
+
+        imagethumb.once( 'viewerDiv', function () {
+            $(this).append('<div class="viewer" id="osd_view" style="width: 800px; height: 600px; background:#ccc;"></div>');
+        });
+
+
+
+        thumbreference.click(function(){
+          //alert('added click');
+          if(typeof viewer != "undefined"){
+            //alert(viewer);
+            viewer.destroy();
+            }
+          deepZoomService( imageUrl );
+          $("#osd_view").dialog("open");
+          return false;
+          });
+
+
+        $('#osd_view', context).once('dialogDiv', function() {
+          $(this).dialog({
+          modal: true,
+
+          autoOpen: false,
+          height: ($(window).height() -20),
+          width: ($(window).width() -20),
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+              }
+            },
+          close: function() {
+            //if(viewer){
+              //viewer.destroy();
+              //alert('viewer zertört');
+            //}
+            }
+          });
+
+
+     }); 
+
+
+/*      var imageUrl = null;
       //var viewer=null;
       var tileSourcesFn = null;
       var imagethumb = $('.field-item[property:dc-format]:contains("image")', context);
@@ -17,11 +70,11 @@
       imagethumb.parent().parent().once('viewerDiv', function(){ 
         $(this).append('<div class="viewer" id="osd_view" style="width: 800px; height: 600px; background:#ccc;"></div>');
       });
-
+*/
       //alert(thumbreference.html());
 
       // initialize and hide dialog-window for OpenSeaDragon viewer
-      $('#osd_view', context).once('dialogDiv', function() {
+/*      $('#osd_view', context).once('dialogDiv', function() {
         $(this).dialog({
         modal: true,
         autoOpen: false,
@@ -38,22 +91,12 @@
             //alert('viewer zertört');
           //}
         }
-      });
-      });
-
-
-      thumbreference.click(function(){
-        //alert('added click');
-        if(typeof viewer != "undefined"){
-          //alert(viewer);
-          viewer.destroy();
-        }
-        deepZoomService();
-        $("#osd_view").dialog("open");
-        return false;
+      });*/
       });
 
-      function deepZoomService (){
+
+
+      function deepZoomService ( imageUrl ){
         var url = serviceUrl + imageUrl + callbackString;
 
         $.getJSON(url, function(json){

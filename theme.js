@@ -41,17 +41,24 @@
 
        $('.field-name-field-edoweb-struct-child').find('.field-label:first').text(fieldLabelParent);
          var dataLink = $(this).find('h1 a').attr('href') + '/data';
-
-         var pictureField = '<div class="field field-name-field-edoweb-preview"><div class="field-label"></div>'
-           + '<div class="field-items">'
-           + '<div class="field-item thumb" property="regal:hasPart">'
+         var mimetype = $(this).find('.download').attr('title').replace(/Download /, '').toLowerCase().replace(/-/, '/');
+         var pictureField = '<div class="field field-name-field-edoweb-preview">'
+           + '<div class="field-label"></div>'
+           + '<div class="field-item thumb" >'
            + '<a href="' + serverUrl + dataLink + '" target="_blank">'
            + '<img src="'
            + thumbyUrl
            + serverUrl
            + dataLink
            + thumbSize
-           + '" /></a></div></div></div>';
+           + '" /></a>'
+           + '</div>'
+           + '<div class="field field-name-field-edoweb-filetype" >'
+           + '<div class="field-items">'
+           + '<div class="field-item" property="dc:format" >' + mimetype + '</div>'
+           + '</div>'
+           + '</div>'
+           + '</div>';
 
          $('.field-name-field-edoweb-title').once().after($(pictureField));
 
