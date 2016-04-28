@@ -117,3 +117,11 @@
 #footer-wrapper {
   padding: 35px 0 30px;
 }
+
+ 
+ .octicon {
+    -moz-user-select: none;
+    display: inline-block;
+    font: 16px/1px octicons;
+    text-decoration: none;
+}

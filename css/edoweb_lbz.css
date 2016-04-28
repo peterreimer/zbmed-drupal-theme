@@ -489,3 +489,16 @@ form, #edoweb-basic-search-entities-form {
   display:none;
 } 
  */
+/* css based reduced information set: get rid of unessessary fields */
+.default .field-name-field-edoweb-title {
+	display: none;
+}
+
+.field-name-field-edoweb-identifier-ht {
+	display: none;
+}
+
+div.field.field-name-field-edoweb-struct-child.field-type-edoweb-ld-reference.field-label-above th
+	{
+	display: none;
+}
