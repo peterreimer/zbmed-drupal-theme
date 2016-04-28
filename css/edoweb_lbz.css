@@ -445,6 +445,29 @@ form, #edoweb-basic-search-entities-form {
   width:150px;
 }
 
+/* bring fileInfo to one line */
+
+.fileInfo h1.fileTitle {
+  float:left;
+  font-size:1em;
+}
+
+.fileInfo .fileMimetype {
+  float:left;
+  padding-left:5px;
+}
+
+.fileInfo .fileSize {
+  float:left;
+  padding-left:5px;
+}
+
+.fileInfo .accessRights {
+  float:left;
+  padding-left:5px;
+}
+
+
 /* css based minify entity display */
 .default .field-name-field-edoweb-title {
   display:none;
