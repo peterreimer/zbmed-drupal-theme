@@ -3,15 +3,11 @@
   Drupal.behaviors.edoweb_drupal_theme_entity_minimize = {
     attach: function (context, settings) {
 
-    var fieldLabel = 'Verbundkatalog-ID:';
     var htattr = $('.field-name-field-edoweb-parallel .resolved', context).attr('data-curie');
     var htnr = '';
     if( htattr ){
       htnr = htattr.replace('lr:','');
     };
-
-    // replace Label "Titelkopie von" with fieldLabel
-    $('.field-name-field-edoweb-parallel .field-label', context).text(fieldLabel);
 
     $('.field-name-field-edoweb-parallel', context).ajaxComplete(function() {
       $('.field-name-field-edoweb-parallel').once().append( '<div class="field-items"><div class="field-item even">'
@@ -29,8 +25,6 @@
   Drupal.behaviors.edoweb_drupal_theme_child = {
     attach: function (context, settings) {
 
-    var fieldLabelParent = 'Dateiliste:';
-    var fieldLabel = 'Download:';
     var thumbyUrl =  Drupal.settings.edoweb.thumbyServiceUrl + '?url=';
     var thumbSize = '&size=250';
     var serverUrl = 'https://' + window.location.hostname;
@@ -40,8 +34,6 @@
 
       $(this).find('.edoweb[data-entity-bundle="file"]').once(function() {
 
-       $('.field-name-field-edoweb-struct-child .field-label').text(fieldLabel);
-       $('.field-name-field-edoweb-struct-child').find('.field-label:first').text(fieldLabelParent);
          var dataLink = $(this).find('h1 a').attr('href') + '/data';
          var mimetype = $(this).find('.download').attr('title').replace(/Download /, '').toLowerCase().replace(/-/, '/');
          var pictureField = '<div class="field field-name-field-edoweb-preview">'
