@@ -1,4 +1,4 @@
-(function($) {
+/* (function($) {
 
   Drupal.behaviors.edoweb_drupal_theme_entity_minimize = {
     attach: function (context, settings) {
@@ -24,19 +24,26 @@
 
 
     }
-  };
+  }; */
 
   Drupal.behaviors.edoweb_drupal_theme_child = {
     attach: function (context, settings) {
 
-    var fieldLabelParent = 'Dateiliste:';
+    var fieldLabelFile = 'Datei(en):';
     var fieldLabel = 'Download:';
     var thumbyUrl =  Drupal.settings.edoweb.thumbyServiceUrl + '?url=';
     var thumbSize = '&size=250';
     var serverUrl = 'https://' + window.location.hostname;
 
 
-    $('.field-name-field-edoweb-struct-child', context).ajaxComplete(function() {
+    $('.field-name-field-edoweb-struct-child .fileInfo', context).ajaxComplete(function() {
+    
+      $('.field-name-field-edoweb-struct-child .field-label:first').text(fieldLabelFile);
+
+    });
+
+/*
+    $('.field-name-field-edoweb-struct-child .fileInfo', context).ajaxComplete(function() {
 
       $(this).find('.edoweb[data-entity-bundle="file"]').once(function() {
 
@@ -69,7 +76,7 @@
        $('.field-name-field-edoweb-preview').after($(this));
 
       });
-
+*/
 
     } 
   };

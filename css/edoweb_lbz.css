@@ -454,17 +454,17 @@ form, #edoweb-basic-search-entities-form {
 
 .fileInfo .fileMimetype {
   float:left;
-  padding-left:5px;
+  padding-left:30px;
 }
 
 .fileInfo .fileSize {
   float:left;
-  padding-left:5px;
+  padding-left:30px;
 }
 
 .fileInfo .accessRights {
   float:left;
-  padding-left:5px;
+  padding-left:30px;
 }
 
 
