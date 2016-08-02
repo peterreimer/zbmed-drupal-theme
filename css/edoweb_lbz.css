@@ -565,10 +565,6 @@ table h1{
   margin-top: 3px;
 }
 
-fieldset.edoweb-facets {
-  width: 20%;
-  float: left;
-}
 fieldset.edoweb-facets .ui-sortable h3,
 fieldset.edoweb-facets .ui-sortable-helper {
   cursor: move;
@@ -578,10 +574,6 @@ fieldset.edoweb-facets .ui-sortable-helper {
   border: 3px dotted #ccc;
 }
 
-fieldset.edoweb-entity-list {
-  width: 75%;
-  float: left;
-}
 
 #block-edoweb-edoweb-search-block {
 }
