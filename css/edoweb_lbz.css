@@ -1,5 +1,208 @@
 /* $Id */
 
+/* Mobile first */
+.ui-sortable {
+    display: none;
+}
+
+fieldset.edoweb-facets {
+    width: 100%;
+}
+
+fieldset.edoweb-entity-list {
+    width: 100%;
+}
+
+fieldset.edoweb-entity-list-smart {
+    width: 100%;
+}
+
+.edoweb-entity-list table td, th {
+  display: none;
+}
+
+/*
+.edoweb-entity-list {
+  display: none;
+}
+*/
+
+#header div.section, 
+#navigation div.section,
+featured div.section,
+#messages,
+#main,
+#triptych,
+#footer-columns,
+#footer
+ {
+  min-width: 320px;
+}
+
+
+.edoweb-entity-list table td:nth-child(1),
+.edoweb-entity-list table th:nth-child(1)
+ {
+    display: block; display: table-cell;
+}
+
+#edit-query-0-term {
+    max-width: 60%;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+.ui-sortable {
+    display: none;
+}
+
+fieldset.edoweb-facets {
+    width: 100%;
+}
+
+
+fieldset.edoweb-entity-list {
+    width: 100%;
+}
+
+fieldset.edoweb-entity-list-smart {
+    width: 100%;
+}
+
+.edoweb-entity-list table th:nth-child(1),
+.edoweb-entity-list table td:nth-child(1),
+.edoweb-entity-list table th:nth-child(2),
+.edoweb-entity-list table td:nth-child(2),
+.edoweb-entity-list table th:nth-child(4),
+.edoweb-entity-list table td:nth-child(4),
+.edoweb-entity-list table th:nth-child(5),
+.edoweb-entity-list table td:nth-child(5)
+ {
+    display: block; display: table-cell;
+}
+
+
+
+#header div.section, 
+#navigation div.section,
+featured div.section,
+#messages,
+#main,
+#triptych,
+#footer-columns,
+#footer
+ {
+  min-width: 600px;
+}
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+.ui-sortable {
+    display: block;
+}
+
+fieldset.edoweb-facets {
+    width: 20%;
+    float: left;
+}
+
+fieldset.edoweb-entity-list {
+    width: 75%;
+    float: left;
+}
+
+fieldset.edoweb-entity-list-smart {
+    width: 100%;
+}
+
+.edoweb-entity-list table th,
+.edoweb-entity-list table td
+ {
+    display: block; display: table-cell;
+
+}
+
+.edoweb-entity-list table td:nth-child(6),
+.edoweb-entity-list table th:nth-child(7),
+.edoweb-entity-list table td:nth-child(7),
+.edoweb-entity-list table th:nth-child(8),
+.edoweb-entity-list table td:nth-child(8)
+ {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#header div.section, 
+#navigation div.section,
+featured div.section,
+#messages,
+#main,
+#triptych,
+#footer-columns,
+#footer
+ {
+  min-width: 1024px;
+}
+
+
+}
+
+@media only screen and (min-width: 1280px) {
+
+.ui-sortable {
+    display: block;
+}
+
+fieldset.edoweb-facets {
+    width: 20%;
+    float: left;
+}
+
+fieldset.edoweb-entity-list {
+    width: 75%;
+    float: left;
+}
+
+fieldset.edoweb-entity-list-smart {
+    width: 100%;
+}
+
+.edoweb-entity-list table th,
+.edoweb-entity-list table td
+ {
+    display: block; display: table-cell;
+}
+
+.edoweb-entity-list table td:nth-child(6),
+.edoweb-entity-list table th:nth-child(7),
+.edoweb-entity-list table td:nth-child(7),
+.edoweb-entity-list table th:nth-child(8),
+.edoweb-entity-list table td:nth-child(8)
+ {
+    word-wrap: normal;
+    word-break: normal;
+}
+
+#header div.section, 
+#navigation div.section,
+featured div.section,
+#messages,
+#main,
+#triptych,
+#footer-columns,
+#footer
+ {
+  min-width: 1280px;
+}
+
+
+}
+
+
 #header {
   /* background: url("../images/muehlenfeldtrans3.jpg") no-repeat; */
   background-position: 140px -40px;
